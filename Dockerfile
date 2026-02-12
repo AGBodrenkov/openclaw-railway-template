@@ -76,6 +76,7 @@ WORKDIR /app
 RUN corepack enable
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile && pnpm store prune
+RUN npm install -g @clawdbot/lobster@2026.1.24
 
 # Copy built openclaw
 COPY --from=openclaw-build /openclaw /openclaw
